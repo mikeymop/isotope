@@ -4,6 +4,8 @@ import (
 	"errors"
 	"io"
 
+	"github.com/isotope/cmd/build"
+	"github.com/isotope/cmd/start"
 	"github.com/spf13/cobra"
 )
 
@@ -23,8 +25,8 @@ func New(out io.Writer, in io.Reader, args []string, server chan<- *start.Server
 		// initialise.New(),
 		// setup.New(),
 		start.New(server),
-		start.NewStartFromInit(server),
-		start.NewStartFromSetup(server),
+		// start.NewStartFromInit(server),
+		// start.NewStartFromSetup(server),
 		// key.New(),
 		// ready.New(),
 	)

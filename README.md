@@ -11,6 +11,8 @@ A self contained client photo gallery software.
 
 ### Thanks to
 
+Structure based on [Go standard layout](https://github.com/golang-standards/project-layout)
+
 [gotailwindcss](https://github.com/gotailwindcss/tailwind)
 [go-htmx](https://github.com/donseba/go-htmx?tab=readme-ov-file)
 
