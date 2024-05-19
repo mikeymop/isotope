@@ -79,20 +79,6 @@ func listen(ctx context.Context, port uint16, shutdown <-chan os.Signal) error {
 	e.HideBanner = true
 	errCh := make(chan error)
 
-	// e.Any("/api", func(c echo.Context) error {
-	// 	if c.Request().Method == "GET" {
-	// 		return c.String(http.StatusOK, "Hello GET request")
-	// 	}
-
-	// 	if c.Request().Method == "POST" {
-	// 		return c.String(http.StatusOK, "Hello POST request")
-	// 	}
-	// 	return c.String(http.StatusOK, "Hello World")
-	// })
-	// uiFS, err := fs.New()
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
 	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
 		Filesystem: web.BuildHTTPFS(),
 		// Root:       "web",
