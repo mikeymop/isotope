@@ -11,6 +11,7 @@ var (
 
 func init() {
 	startFlagSet.Uint16P("port", "p", 0, "port to run isotope on")
+	startFlagSet.StringP("location", "l", "photos", "path to photos directory")
 	// startFlagSet.String("externalDomain", "", "domain isotope will be exposed on")
 	// startFlagSet.String("externalPort", "", "port isotope will be exposed on")
 }

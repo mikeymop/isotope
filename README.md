@@ -22,7 +22,9 @@ go build
 
 Structure based on [Go standard layout](https://github.com/golang-standards/project-layout)
 
+[sig kubes yaml parser](sigs.k8s.io/yaml)
 [go-embed-spa](https://github.com/aprakasa/go-embed-spa)
 [gotailwindcss](https://github.com/gotailwindcss/tailwind)
 [go-htmx](https://github.com/donseba/go-htmx?tab=readme-ov-file)
+[How I write go after 13 years](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)
 

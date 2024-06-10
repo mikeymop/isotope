@@ -9,13 +9,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/isotope/web"
+	"github.com/isotope/internal/api"
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 	"github.com/spf13/cobra"
 )
 
 type Server struct {
+	PhotosDir string
 	// Config     *Config
 	// DB         *database.DB
 	// KeyStorage crypto.KeyStorage
@@ -60,42 +60,31 @@ func startIsotope(ctx context.Context, server chan<- *Server) error {
 	if err != nil {
 		port = 8080
 	}
+	photosLocation, photosErr := startFlagSet.GetString("location")
+	if photosErr != nil {
+		port = 8080
+	}
 
 	shutdown := make(chan os.Signal, 1)
 	signal.NotifyContext(ctx, os.Interrupt, syscall.SIGTERM)
 
 	if server != nil {
 		server <- &Server{
-			Shutdown: shutdown,
+			PhotosDir: photosLocation,
+			Shutdown:  shutdown,
 		}
 		close(server)
 	}
 
-	return listen(ctx, port, shutdown)
+	return listen(ctx, port, photosLocation, shutdown)
 }
 
-func listen(ctx context.Context, port uint16, shutdown <-chan os.Signal) error {
+func listen(ctx context.Context, port uint16, photosLocation string, shutdown <-chan os.Signal) error {
 	e := echo.New()
 	e.HideBanner = true
 	errCh := make(chan error)
 
-	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
-		Filesystem: web.BuildHTTPFS(),
-		// Root:       "web",
-		HTML5: true,
-	}))
-
-	api := e.Group("/api")
-	api.Any("", func(c echo.Context) error {
-		if c.Request().Method == "GET" {
-			return c.String(http.StatusOK, "Hello GET request")
-		}
-
-		if c.Request().Method == "POST" {
-			return c.String(http.StatusOK, "Hello POST request")
-		}
-		return c.String(http.StatusOK, "Hello World")
-	})
+	api.AddRoutes(e)
 
 	ctx, stop := signal.NotifyContext(ctx, os.Interrupt)
 	defer stop()
