@@ -50,7 +50,7 @@ export function AlbumArtwork({
     >
       <ContextMenu>
         <ContextMenuTrigger>
-          <div className="overflow-hidden rounded-md">
+          <div className="overflow-hidden rounded-t-md">
             <img
               src={album.cover}
               alt={album.name}
@@ -101,7 +101,7 @@ export function AlbumArtwork({
           <ContextMenuItem>Share</ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
-      <div className="space-y-1 text-sm">
+      <div className="space-y-1 p-1 text-sm">
         <h3 className="font-medium leading-none">{data.title}</h3>
         <p className="text-xs text-muted-foreground">{data.size}</p>
         <p className="text-xs text-muted-foreground">{album.artist}</p>
