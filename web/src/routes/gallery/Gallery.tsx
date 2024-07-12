@@ -19,7 +19,6 @@ const galleries = makeGalleries();
 const Gallery = () => {
   return (
     <>
-      <Nav />
       <div className="flex row m-8">
         {listenNowAlbums.map((album, index) => (
           <Album

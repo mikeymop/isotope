@@ -9,7 +9,7 @@ const isActive = (path: string) =>
 /** Isotope Navbar
  * @see https://lucide.dev/icons/
  */
-const Nav = () => {
+const Nav = (): JSX.Element => {
   console.log("Active: ", window.location.pathname, isActive("/gallery"));
   return (
     <header className="sticky top-0 flex h-12 items-center gap-4 border-b bg-background px-4 md:px-6">

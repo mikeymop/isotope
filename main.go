@@ -4,7 +4,6 @@ import (
 	"os"
 
 	"github.com/isotope/cmd"
-
 	"github.com/spf13/cobra"
 )
 

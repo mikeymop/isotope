@@ -1,14 +1,11 @@
-import { Outlet } from "react-router-dom";
-import { Theme } from "@radix-ui/themes";
+// import { Outlet } from "react-router-dom";
 import Nav from "@/components/ui/navbar";
-// import Navbar from '../components/Navbar/Navbar';
 
-const MainLayout = () => (
+const MainLayout = ({ children }: { children: React.ReactElement }) => (
   <>
     {/* <Theme> */}
-    <Nav>
-      <Outlet />
-    </Nav>
+    <Nav />
+    {children}
     {/* </Theme> */}
   </>
 );
