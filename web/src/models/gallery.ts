@@ -1,5 +1,6 @@
 export interface GalleryMeta {
-    id: number;
-    title: string;
-    size: number;
+  id: number;
+  title: string;
+  size: number;
+  coverPhoto?: string;
 }

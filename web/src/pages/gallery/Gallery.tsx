@@ -16,6 +16,7 @@ const makeGalleries = (): GalleryMeta[] =>
 
 const galleries = makeGalleries();
 
+/** The Gallery page, displays all created client galleries. */
 const Gallery = () => {
   return (
     <>

@@ -1,8 +1,7 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-import { Root } from "./routes/root";
-import { Gallery } from "./routes/gallery";
+import { Root, Gallery, Photos, Customers } from "@/pages";
 
 export const router = createBrowserRouter(
   [
@@ -20,6 +19,14 @@ export const router = createBrowserRouter(
         {
           path: "/gallery",
           element: <Gallery />,
+        },
+        {
+          path: "/photos",
+          element: <Photos />,
+        },
+        {
+          path: "/customers",
+          element: <Customers />,
         },
       ],
     },
