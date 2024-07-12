@@ -1,9 +1,7 @@
-import Nav from "@/components/ui/navbar";
 import Album from "@/components/Album/Album";
-// import GalleryListItem from "../../components/GalleryListItem/GalleryListItem";
-
-import type { GalleryMeta } from "../../models/gallery";
 import { listenNowAlbums } from "@/components/Album/data";
+
+import type { GalleryMeta } from "../../models";
 
 const makeGalleries = (): GalleryMeta[] =>
   Array.from({ length: 10 }, (_, i) => {
